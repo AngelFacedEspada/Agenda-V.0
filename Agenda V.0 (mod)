@@ -36,21 +36,14 @@ Algoritmo agenda
 				Leer num;
 				Escribir "¿Que desea hacer ahora?";
 			2:
-				Escribir "¿Quieres buscar al empleado por su telefono o por su nombre?";
-				Leer buscar;
-				Si buscar=="nombre" Entonces
-					Escribir "dime el nombre del empleado";
-					Leer nombrebuscar;
-					Si nombrebuscar==nombre2 Entonces
-						Escribir "El empleado es " nombre2 " y su número es " num;
-					FinSi
+				Escribir "dime el telefono del empleado";
+				Leer numbuscar;
+				
+				Si numbuscar==num Entonces
+					Escribir "El empleado es " nombre2 " y su número es " num;
 				SiNo
-					Escribir "dime el telefono del empleado";
-					Leer numbuscar;
-					Si numbuscar==num Entonces
-						Escribir "El empleado es " nombre2 " y su número es " num;
-					FinSi
-				Fin Si
+					Escribir "ERROR no hay ningún usuario con esos datos";			
+				FinSi
 				Escribir "¿Que desea hacer ahora?";
 			3:
 				Escribir "dime el telefono del empleado que quieres borrar";
