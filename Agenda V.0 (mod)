@@ -52,6 +52,8 @@ Algoritmo agenda
 					nombre2="";
 					num=0;
 					Escribir "El empleado ha sido borrado";
+				SiNo
+					Escribir "ERROR no hay ningún usuario con esos datos";		
 				FinSi
 				Escribir "¿Que desea hacer ahora?";
 			4:
@@ -79,6 +81,8 @@ Algoritmo agenda
 						Fin Si
 					Fin Para
 					Escribir "dime su nuevo número de telefono";
+				SiNo
+					Escribir "ERROR no hay ningún usuario con esos datos";		
 				FinSi
 				Escribir "El empleado " nombre2 " con número " num " ha sido actualizado";
 				Escribir "¿Que desea hacer ahora?";
