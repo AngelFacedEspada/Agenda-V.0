@@ -1,0 +1,98 @@
+Algoritmo agenda
+	
+	Definir menu, num, i, numbuscar Como Entero;
+	Definir nombre, nombre2, buscar, nombrebuscar Como Caracter;
+	menu=0;
+	Repetir
+		Escribir "para añadir un empleado pulse 1";
+		Escribir "para buscar un empleado pulse 2";
+		Escribir "para borrar un empleado pulse 3";
+		Escribir "para editar un empleado pulse 4";
+		Escribir "para buscar todos sus empleados pulse 5";
+		Escribir "para salir pulse 6";
+		Leer menu;
+		Segun menu Hacer
+			1:
+				Escribir "dime el nombre del empleado";
+				Leer nombre;
+				nombre=Minusculas(nombre);
+				Para i=0 Hasta 0 Con Paso 1 Hacer
+					Si Subcadena(nombre,i,i)<>" " Entonces
+						nombre2=nombre2+Mayusculas(Subcadena(nombre,i,i));
+					FinSi
+				Fin Para
+				Para i=0 Hasta Longitud(nombre) Con Paso 1 Hacer
+					Si Subcadena(nombre,i,i)>="a" y Subcadena(nombre,i,i)<="z" Entonces
+						nombre2=nombre2+(Subcadena(nombre,i+1,i+1));
+					Fin Si
+					Si Subcadena(nombre,i,i)==" " Entonces
+						nombre2=nombre2+Mayusculas(Subcadena(nombre,i+1,i+1));
+					Fin Si
+					Si Subcadena(nombre,i,i)==" " y Subcadena(nombre,i+1,i+1)==" " Entonces
+						nombre2=nombre2+Subcadena(nombre,i-1,i-1);
+					Fin Si
+				Fin Para
+				Escribir "dime su número de telefono";
+				Leer num;
+				Escribir "¿Que desea hacer ahora?";
+			2:
+				Escribir "¿Quieres buscar al empleado por su telefono o por su nombre?";
+				Leer buscar;
+				Si buscar=="nombre" Entonces
+					Escribir "dime el nombre del empleado";
+					Leer nombrebuscar;
+					Si nombrebuscar==nombre2 Entonces
+						Escribir "El empleado es " nombre2 " y su número es " num;
+					FinSi
+				SiNo
+					Escribir "dime el telefono del empleado";
+					Leer numbuscar;
+					Si numbuscar==num Entonces
+						Escribir "El empleado es " nombre2 " y su número es " num;
+					FinSi
+				Fin Si
+				Escribir "¿Que desea hacer ahora?";
+			3:
+				Escribir "dime el telefono del empleado que quieres borrar";
+				Leer numbuscar;
+				Si numbuscar==num Entonces
+					nombre2="";
+					num=0;
+					Escribir "El empleado ha sido borrado";
+				FinSi
+				Escribir "¿Que desea hacer ahora?";
+			4:
+				Escribir "dime el telefono del empleado del que quieres editar sus datos";
+				Leer numbuscar;
+				Si numbuscar==num Entonces
+					Escribir "dime el nuevo nombre del empleado";
+					nombre2="";
+					Leer nombre;
+					nombre=Minusculas(nombre);
+					Para i=0 Hasta 0 Con Paso 1 Hacer
+						Si Subcadena(nombre,i,i)<>" " Entonces
+							nombre2=nombre2+Mayusculas(Subcadena(nombre,i,i));
+						FinSi
+					Fin Para
+					Para i=0 Hasta Longitud(nombre) Con Paso 1 Hacer
+						Si Subcadena(nombre,i,i)>="a" y Subcadena(nombre,i,i)<="z" Entonces
+							nombre2=nombre2+(Subcadena(nombre,i+1,i+1));
+						Fin Si
+						Si Subcadena(nombre,i,i)==" " Entonces
+							nombre2=nombre2+Mayusculas(Subcadena(nombre,i+1,i+1));
+						Fin Si
+						Si Subcadena(nombre,i,i)==" " y Subcadena(nombre,i+1,i+1)==" " Entonces
+							nombre2=nombre2+Subcadena(nombre,i-1,i-1);
+						Fin Si
+					Fin Para
+					Escribir "dime su nuevo número de telefono";
+				FinSi
+				Escribir "El empleado " nombre2 " con número " num " ha sido actualizado";
+				Escribir "¿Que desea hacer ahora?";
+			5:
+				Escribir "El empleado es " nombre2 " y su número es " num;
+				Escribir "¿Que desea hacer ahora?";
+		Fin Segun
+	Hasta Que menu==6;
+	
+FinAlgoritmo
