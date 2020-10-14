@@ -1,7 +1,7 @@
 Algoritmo agenda
 	
 	Definir menu, num, i, numbuscar Como Entero;
-	Definir nombre, nombre2, buscar Como Caracter;
+	Definir nombre, nombre2 Como Caracter;
 	Escribir "para añadir un empleado pulse 1";
 	Escribir "para buscar un empleado pulse 2";
 	Escribir "para borrar un empleado pulse 3";
