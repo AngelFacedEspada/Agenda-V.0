@@ -1,0 +1,95 @@
+Algoritmo agenda
+	
+	Definir menu, i, contador, tam Como Entero;
+	Definir vnombre, nombrebuscar, vnum, vnombre2 Como Caracter;
+	Escribir "para ver el menu pulse 0";
+	Escribir "para añadir un empleado pulse 1";
+	Escribir "para buscar un empleado pulse 2";
+	Escribir "para borrar un empleado pulse 3";
+	Escribir "para editar un empleado pulse 4";
+	Escribir "para buscar todos sus empleados pulse 5";
+	Escribir "para salir pulse 6";
+	Escribir "el nombre y el numero se guardaran como nombre*numero";
+	Escribir "Cuantos empleados tienes";
+	Leer tam;
+	Escribir "que desea hacer ahora";
+	Leer menu;
+	Dimension vnombre[tam];
+	Dimension vnombre2[tam];
+	Dimension vnum[tam];
+	Mientras menu<>6 Hacer
+		Segun menu Hacer
+			0:
+				Escribir "para ver el menu pulse 0";
+				Escribir "para añadir un empleado pulse 1";
+				Escribir "para buscar un empleado pulse 2";
+				Escribir "para borrar un empleado pulse 3";
+				Escribir "para editar un empleado pulse 4";
+				Escribir "para buscar todos sus empleados pulse 5";
+				Escribir "para salir pulse 6";
+				Leer menu;
+			1:
+				Para i=0 Hasta tam-1 Con Paso 1
+					Escribir "dime el nombre del empleado " i+1;
+					Leer vnombre[i];
+					vnombre[i]=Minusculas(vnombre[i]);
+					Escribir "dime su número de telefono";
+					Leer vnum[i];
+					vnombre2[i]=vnombre[i]+"*"+vnum[i];
+				FinPara
+				Escribir "¿Que desea hacer ahora?";
+				Leer menu;
+			2:
+				Escribir "dime el nombre del empleado que quieres buscar";
+				Leer nombrebuscar;
+				Para i=0 Hasta tam-1 Con Paso 1
+					Si nombrebuscar==vnombre[i] Entonces
+						Escribir "El empleado es " vnombre2[i];
+					FinSi
+				FinPara
+				Escribir "¿Que desea hacer ahora?";
+				Leer menu;
+			3:
+				Escribir "dime el nombre del empleado que quieres borrar";
+				Leer nombrebuscar; 
+				Para i=0 Hasta tam-1 Con Paso 1
+					Si nombrebuscar==vnombre[i] Entonces
+						vnombre[i]="";
+						vnum[i]="";
+						Escribir "El empleado " vnombre2[i] " ha sido borrado";
+					finsi	
+				FinPara
+				Escribir "¿Que desea hacer ahora?";
+				Leer menu;
+			4:
+				Escribir "dime el nombre del empleado del que quieres editar sus datos";
+				Leer nombrebuscar;
+				Para i=0 Hasta tam-1 Con Paso 1
+					Si nombrebuscar==vnombre[i] Entonces
+						Escribir "dime el nuevo nombre del empleado";
+						vnombre2[i]="";
+						Leer vnombre[i];
+						vnombre[i]=Minusculas(vnombre[i]);
+						Escribir "dime su nuevo número de telefono";
+						Leer vnum[i];
+						vnombre2[i]=vnombre[i]+"*"+vnum[i];
+						Escribir "El empleado " vnombre2[i] " ha sido actualizado";
+					FinSi
+				FinPara
+				Escribir "¿Que desea hacer ahora?";
+				Leer menu;
+			5:
+				Para i=0 Hasta tam-1 Con Paso 1 Hacer
+					Si vnombre[i]<>"" Entonces
+						Escribir vnombre2[i];
+					FinSi
+				Fin Para
+				Escribir "¿Que desea hacer ahora?";
+				Leer menu;
+			De Otro Modo:
+				Escribir "ERROR esa opcion NO está en el menú";
+				Leer menu;
+		Fin Segun
+	Fin Mientras
+	
+FinAlgoritmo
