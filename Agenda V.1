@@ -15,8 +15,14 @@ Algoritmo agenda
 	Escribir "que desea hacer ahora";
 	Leer menu;
 	Dimension vnombre[tam];
-	Dimension vnombre2[tam];
+
 	Dimension vnum[tam];
+	Para i=0 Hasta tam-1 Hacer
+	 vnombre[i]="";
+	FinPara
+	Para i=0 Hasta tam-1 Hacer
+	 vnum[i]="";
+	FinPara
 	Mientras menu<>6 Hacer
 		Segun menu Hacer
 			0:
@@ -34,7 +40,6 @@ Algoritmo agenda
 				vnombre[contador]=Minusculas(vnombre[contador]);
 				Escribir "dime su número de telefono";
 				Leer vnum[contador];
-				vnombre2[contador]=vnombre[contador]+"*"+vnum[contador];
 				contador=contador+1;
 				Escribir "¿Que desea hacer ahora?";
 				Leer menu;
@@ -43,7 +48,7 @@ Algoritmo agenda
 				Leer nombrebuscar;
 				Para i=0 Hasta tam-1 Con Paso 1
 					Si nombrebuscar==vnombre[i] Entonces
-						Escribir "El empleado es " vnombre2[i];
+						Escribir "El nombre del contacto " i+1 " = " vnombre[i] " y su numero = " vnum[i];
 					FinSi
 				FinPara
 				Escribir "¿Que desea hacer ahora?";
@@ -55,7 +60,7 @@ Algoritmo agenda
 					Si nombrebuscar==vnombre[i] Entonces
 						vnombre[i]="";
 						vnum[i]="";
-						Escribir "El empleado " vnombre2[i] " ha sido borrado";
+						Escribir "El empleado " vnombre[i] " ha sido borrado";
 					finsi	
 				FinPara
 				Escribir "¿Que desea hacer ahora?";
@@ -66,13 +71,13 @@ Algoritmo agenda
 				Para i=0 Hasta tam-1 Con Paso 1
 					Si nombrebuscar==vnombre[i] Entonces
 						Escribir "dime el nuevo nombre del empleado";
-						vnombre2[i]="";
+						vnombre[i]="";
 						Leer vnombre[i];
 						vnombre[i]=Minusculas(vnombre[i]);
 						Escribir "dime su nuevo número de telefono";
+						vnum[i]="";
 						Leer vnum[i];
-						vnombre2[i]=vnombre[i]+"*"+vnum[i];
-						Escribir "El empleado " vnombre2[i] " ha sido actualizado";
+						Escribir "El empleado " vnombre[i] " con numero " vnum[i] " ha sido actualizado";
 					FinSi
 				FinPara
 				Escribir "¿Que desea hacer ahora?";
@@ -80,7 +85,7 @@ Algoritmo agenda
 			5:
 				Para i=0 Hasta tam-1 Con Paso 1 Hacer
 					Si vnombre[i]<>"" Entonces
-						Escribir vnombre2[i];
+						Escribir "El nombre del contacto " i+1 " = " vnombre[i] " y su numero = " vnum[i];
 					FinSi
 				Fin Para
 				Escribir "¿Que desea hacer ahora?";
