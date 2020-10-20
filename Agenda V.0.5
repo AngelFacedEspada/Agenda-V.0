@@ -1,0 +1,125 @@
+Algoritmo agenda
+	
+	Definir menu, i, j, contador, tam Como Entero;
+	Definir nombre, buscar, num, vnombre2, aux Como Caracter;
+	Escribir "para ver el menu pulse 0";
+	Escribir "para añadir un empleado pulse 1";
+	Escribir "para buscar un empleado pulse 2";
+	Escribir "para borrar un empleado pulse 3";
+	Escribir "para editar un empleado pulse 4";
+	Escribir "para buscar todos sus empleados pulse 5";
+	Escribir "para salir pulse 6";
+	Escribir "el nombre y el numero se guardaran como nombre*numero";
+	Escribir "Cuantos empleados tienes";
+	Leer tam;
+	Escribir "que desea hacer ahora";
+	Leer menu;
+	Dimension vnombre2[tam];
+	Para i=0 Hasta tam-1 Hacer
+		vnombre2[i]="";
+	FinPara
+	Mientras menu<>6 Hacer
+		Segun menu Hacer
+			0:
+				Escribir "para ver el menu pulse 0";
+				Escribir "para añadir un empleado pulse 1";
+				Escribir "para buscar un empleado pulse 2";
+				Escribir "para borrar un empleado pulse 3";
+				Escribir "para editar un empleado pulse 4";
+				Escribir "para buscar todos sus empleados pulse 5";
+				Escribir "para salir pulse 6";
+				Leer menu;
+			1:
+				Escribir "dime el nombre del empleado " contador+1;
+				Leer nombre;
+				Escribir "dime su número de telefono";
+				Leer num;
+				aux=nombre+"*"+num;
+				Para i=0 Hasta tam-1 Con Paso 1 Hacer
+					Si vnombre2[i]=="" Entonces
+						vnombre2[i]=aux;
+						i=tam;
+					FinSi
+				FinPara
+				contador=contador+1;
+				Escribir "¿Que desea hacer ahora?";
+				Leer menu;
+			2:
+				Escribir "dime el nombre del empleado que quieres buscar";
+				Leer buscar;
+				Para i=0 Hasta tam-1 Con Paso 1 Hacer
+					aux=vnombre2[i];
+					Para j=0 Hasta Longitud(aux) Con Paso 1 Hacer
+						Si Subcadena(aux,j,j) == "*" Entonces
+							nombre = Subcadena(aux,0,j-1);
+							num = Subcadena(aux,j+1,Longitud(aux));
+						FinSi
+					FinPara
+					Si buscar==nombre Entonces
+						Escribir "El nombre del contacto " i+1 " = " nombre " y su numero = " num;
+					FinSi
+				FinPara
+				Escribir "¿Que desea hacer ahora?";
+				Leer menu;
+			3:
+				Escribir "dime el nombre del empleado que quieres borrar";
+				Leer buscar;
+				Para i=0 Hasta tam-1 Con Paso 1 Hacer
+					aux=vnombre2[i];
+					Para j=0 Hasta Longitud(aux) Con Paso 1 Hacer
+						Si Subcadena(aux,j,j) == "*" Entonces
+							nombre = Subcadena(aux,0,j-1);
+							num = Subcadena(aux,j+1,Longitud(aux));
+						FinSi
+					FinPara
+					Si buscar==nombre Entonces
+						nombre = "";
+						num = "";
+						Escribir "El nombre del contacto " i+1 " ha sido borrado";
+					FinSi
+				FinPara
+				Escribir "¿Que desea hacer ahora?";
+				Leer menu;
+			4:
+				Escribir "dime el nombre del empleado que quieres editar";
+				Leer buscar;
+				Para i=0 Hasta tam-1 Con Paso 1 Hacer
+					aux=vnombre2[i];
+					Para j=0 Hasta Longitud(aux) Con Paso 1 Hacer
+						Si Subcadena(aux,j,j) == "*" Entonces
+							nombre = Subcadena(aux,0,j-1);
+							num = Subcadena(aux,j+1,Longitud(aux));
+						FinSi
+					FinPara
+					Si buscar==nombre Entonces
+						Escribir "dime el nombre del empleado " i+1;
+						Leer nombre;
+						Escribir "dime su número de telefono";
+						Leer num;
+						Escribir "El nombre del contacto " i+1 " = " nombre " y su numero = " num;
+					FinSi
+				FinPara
+				Escribir "¿Que desea hacer ahora?";
+				Leer menu;
+			5:
+				Para i=0 Hasta tam-1 Con Paso 1 Hacer
+					Para j=0 Hasta Longitud(aux) Con Paso 1 Hacer
+						Si Subcadena(aux,j,j) == "*" Entonces
+							nombre = Subcadena(aux,0,j-1);
+							num = Subcadena(aux,j+1,Longitud(aux));
+							Si nombre<>"" y num<>"" Entonces
+								Escribir "El nombre del contacto " i+1 " = " nombre " y su numero = " num;
+							FinSi
+						FinSi
+					FinPara
+				Fin Para
+				Escribir "¿Que desea hacer ahora?";
+				Leer menu;
+			De Otro Modo:
+				Escribir "ERROR esa opcion NO está en el menú";
+				Leer menu;
+		Fin Segun
+	Fin Mientras
+	
+FinAlgoritmo
+
