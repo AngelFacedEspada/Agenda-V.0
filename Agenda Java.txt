@@ -1,0 +1,85 @@
+import java.util.Scanner;
+
+public class Agenda {
+
+	public static void main(String[] args) {
+		
+		int numbuscar, contador, tam, menu;
+		Scanner leernum = new Scanner(System.in);
+		Scanner leer = new Scanner(System.in);
+		System.out.println("Dime cuantos empleados tienes");
+		tam = leernum.nextInt();
+		System.out.println("para añadir empleados pulse : 1");
+		System.out.println("para buscar un empleado pulse : 2");
+		System.out.println("para borrar empleados pulse : 3");
+		System.out.println("para editar empleados pulse : 4");
+		System.out.println("para mostrar todos sus empleados pulse : 5");
+		System.out.println("para salir pulse : 6");
+		System.out.println("¿Que desea hacer ahora?");
+		String nombre[] = new String[tam];
+		int num[] = new int[tam];
+			menu = leernum.nextInt();
+			while (menu != 6) {
+				switch (menu) {
+				case 1: {
+					for (int i = 0; i < tam; i++) {
+						System.out.println("dime el nombre del empleado " + (i+1));
+						nombre[i] = leer.next();
+						System.out.println("dime el numero del empleado " + (i+1));
+						num[i] = leernum.nextInt();
+					}
+					break;
+				}
+				case 2: {
+					System.out.println("dime el numero del empleado");
+					numbuscar = leernum.nextInt();
+					for (int j = 0; j < tam; j++) {
+						if (numbuscar == num[j]) {
+							System.out.println("el nombre del empleado = " + nombre[j]);
+							System.out.println("el numero del empleado = " + num[j]);
+						}
+					}
+					break;
+				}
+				case 3: {
+					System.out.println("dime el numero del empleado");
+					numbuscar = leernum.nextInt();
+					for (int k = 0; k < tam; k++) {
+						if (numbuscar == num[k]) {
+							nombre[k] = "";
+							num[k] = 0;
+						}
+					}
+					break;
+				}
+				case 4: {
+					System.out.println("dime el numero del empleado");
+					numbuscar = leernum.nextInt();
+					for (int p = 0; p < tam; p++) {
+						if (numbuscar == num[p]) {
+							System.out.println("dime el nuevo nombre del empleado");
+							nombre[p] = leer.next();
+							System.out.println("dime el nuevo numero del empleado");
+							num[p] = leernum.nextInt();
+						}
+					}
+					break;
+				}
+				case 5: {
+					for (int l = 0; l < tam; l++) {
+						System.out.println("el nombre del empleado " + (l+1) + " " + nombre[l]);
+						System.out.println("el numero del empleado " + (l+1) + " " + num[l]);
+					}
+					break;
+				}
+				default:
+					System.out.println("ERROR esa opcion no esta en el menu");
+				}
+				System.out.println("¿Que desea hacer ahora?");
+				menu = leernum.nextInt();
+			}
+				
+			
+	}
+
+}
